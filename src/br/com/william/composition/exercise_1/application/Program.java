@@ -17,6 +17,7 @@ public class Program {
 
         System.out.print("Enter the name of the department: ");
         String departmentName = scanner.next();
+        scanner.nextLine();
 
         Department department = new Department(departmentName);
 
@@ -47,6 +48,15 @@ public class Program {
         }
 
         System.out.print("Enter month and year to calculate income (MM/YYYY): ");
+        String[] dateIncome = scanner.next().split("/");
+        int month = Integer.parseInt(dateIncome[0]);
+        int year = Integer.parseInt(dateIncome[1]);
+        double income = worker.income(year, month);
+
+        System.out.printf("Name: %s%n", worker.getName());
+        System.out.printf("Department: %s%n", worker.getDepartment().getName());
+        System.out.println("Income for " + month + "/" + year + ": " + income);
+
 
         scanner.close();
     }

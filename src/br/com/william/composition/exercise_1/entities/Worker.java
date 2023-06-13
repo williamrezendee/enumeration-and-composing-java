@@ -57,7 +57,7 @@ public class Worker {
         for (Contract contract : contracts) {
             calendar.setTime(contract.getDate());
             int contractYear = calendar.get(Calendar.YEAR);
-            int contractMonth = calendar.get(Calendar.MONTH);
+            int contractMonth = 1 + calendar.get(Calendar.MONTH);
             if (contractYear == year && contractMonth == month) {
                 sum += contract.totalValue();
             }
